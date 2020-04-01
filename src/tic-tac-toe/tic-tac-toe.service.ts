@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { TicTacToe } from './interfaces/tic-tac-toe.interface';
 
 @Injectable()
 export class TicTacToeService {
@@ -25,8 +24,8 @@ export class TicTacToeService {
         }
     }
 
-    getBoard(): TicTacToe {
-        return {board: this.board}
+    getBoard(): string[][] {
+        return this.board
     }
 
     getWinner(): string {

@@ -41,7 +41,7 @@ describe('TicTacToeService', () => {
   });
 
   it('should set an empty board', () => {
-    expect(service.getBoard()).toEqual({board: [['','',''],['','',''],['','','']]})
+    expect(service.getBoard()).toEqual([['','',''],['','',''],['','','']])
   })
 
   it('should start with winner equal to null', () => {
@@ -51,7 +51,7 @@ describe('TicTacToeService', () => {
   it('should set cells with euclidian coordinates', () => {
     service.makeMove('X', 2, 1);
     service.makeMove('O', 0, 2)
-    expect(service.getBoard()).toEqual({board: [['','','O'],['','',''],['','X','']]})
+    expect(service.getBoard()).toEqual([['','','O'],['','',''],['','X','']])
   })
 
   it('does not allow two turns in a row', () => {
