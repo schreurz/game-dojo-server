@@ -1,4 +1,5 @@
 export class TicTacToeDto {
-    board: string[][];
+    board: string[][]
+    turn: string
     winner: string
 }

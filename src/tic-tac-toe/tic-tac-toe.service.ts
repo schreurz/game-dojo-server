@@ -1,8 +1,10 @@
 import { Injectable } from '@nestjs/common';
 
+const EMPTY_BOARD: string[][] = [['','',''],['','',''],['','','']]
+
 @Injectable()
 export class TicTacToeService {
-    private readonly board: string[][] = [['','',''],['','',''],['','','']]
+    private board: string[][] = EMPTY_BOARD
     private turn: string = 'X'
 
     private setCell(val: string, row: number, column: number) {
@@ -11,6 +13,11 @@ export class TicTacToeService {
 
     private getCell(row: number, column: number): string {
         return this.board[row][column]
+    }
+
+    reset() {
+        this.board = EMPTY_BOARD
+        this.turn = 'x'
     }
 
     makeMove(player: string, row: number, column: number): boolean {
@@ -28,11 +35,11 @@ export class TicTacToeService {
         return this.board
     }
 
-    getWinner(): string {
+    getWinner(): string | null {
         if (TicTacToeService.checkIfWon('X', this.board)) {
             return 'X'
-        } else if (TicTacToeService.checkIfWon('Y', this.board)) {
-            return 'Y'
+        } else if (TicTacToeService.checkIfWon('O', this.board)) {
+            return 'O'
         } else {
             return null
         }
